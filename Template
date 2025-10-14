@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+// Template declaration
+template <typename T>
+T getMax(T a, T b) {
+    return (a > b) ? a : b;
+}
+
+int main() {
+    cout << "Max of 5 and 10: " << getMax(5, 10) << endl;
+    cout << "Max of 3.5 and 2.1: " << getMax(3.5, 2.1) << endl;
+    cout << "Max of 'A' and 'Z': " << getMax('A', 'Z') << endl;
+    return 0;
+}
