@@ -1,0 +1,23 @@
+#include <iostream>
+#include <unordered_map>
+#include <vector>
+using namespace std;
+
+int majorityElement(vector<int>& nums) {
+    unordered_map<int, int> freq;
+    int n = nums.size();
+
+    for (int num : nums) {
+        freq[num]++;
+        if (freq[num] > n / 2)
+            return num;
+    }
+
+    return -1; // No majority element
+}
+
+int main() {
+    vector<int> nums = {3, 3, 4, 2, 3, 3, 5};
+    cout << "Majority Element: " << majorityElement(nums);
+    return 0;
+}
