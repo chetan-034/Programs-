@@ -1,0 +1,15 @@
+#include <iostream>
+using namespace std;
+
+int countOdds(int low, int high) {
+    // Total numbers in range
+    int total = high - low + 1;
+    // Half of them are odd (plus one if range starts or ends with odd)
+    return total / 2 + (low % 2 == 1 || high % 2 == 1 ? 1 : 0);
+}
+
+int main() {
+    int low = 3, high = 7;
+    cout << "Count of odd numbers: " << countOdds(low, high);
+    return 0;
+}
