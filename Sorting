@@ -1,0 +1,23 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    vector<int> arr = {5, 2, 9, 1, 5, 6};
+
+    // Ascending sort
+    sort(arr.begin(), arr.end());
+
+    cout << "Ascending: ";
+    for (int x : arr) cout << x << " ";
+    cout << endl;
+
+    // Descending sort
+    sort(arr.begin(), arr.end(), greater<int>());
+    cout << "Descending: ";
+    for (int x : arr) cout << x << " ";
+    cout << endl;
+
+    return 0;
+}
