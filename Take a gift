@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+// returns pair<index_of_pile_taken_from, updated_piles>
+// if multiple piles tie, returns the smallest index among ties
+pair<int, vector<int>> takeOneFromRichest(vector<int> piles) {
+    int n = piles.size();
+    // find largest value and its (first) index
+    int bestVal = -1, bestIdx = -1;
+    for (int i = 0; i < n; ++i) {
+        if (piles[i] > bestVal) {
+            bestVal = piles[i];
+            bestIdx = i;
+        }
+    }
+    if (bestVal <= 0) {
+        return {-1, piles}; // nothing to take
+    }
+    piles[bestIdx]--; // take one gift
+    return {bestIdx, piles};
+}
+
+int main() {
+    vector<int> piles = {2, 5, 3, 5}; // pile indices 0..3
+    auto res = takeOneFromRichest(piles);
+    cout << "Taken from pile index: " << res.first << "\nUpdated piles: ";
+    for (int x : res.second) cout << x << ' ';
+    cout << '\n';
+}
